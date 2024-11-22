@@ -40,8 +40,10 @@ final class TDDTests: XCTestCase {
     
     func testFizzBuzz() {
         let res = objectCal?.fizbuz(15)
-        
         XCTAssertEqual(res, "FizzBuzz")
+        
+        let res1 = objectCal?.fizbuz(30)
+        XCTAssertEqual(res1, "FizzBuzz")
     }
     func testNotFizzNotBuzz(){
         let res = objectCal?.fizbuz(11)
