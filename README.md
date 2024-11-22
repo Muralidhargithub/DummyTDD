@@ -1,31 +1,70 @@
-# FizzBuzz Unit Tests
+# FizzBuzz Unit Testing - TDD Approach
 
 ## Overview
+This repository contains the implementation of the classic **FizzBuzz** problem along with a comprehensive suite of unit tests written in Swift using the XCTest framework. The project focuses on the Test-Driven Development (TDD) approach to ensure robustness and coverage for all edge cases.
 
-This update introduces a comprehensive set of unit tests for the `FizzBuzz` implementation to ensure the correctness and robustness of the logic. Below are the key enhancements and scenarios covered by these unit tests:
+## Project Structure
+- **FizzBuzz.swift**: Contains the implementation of the `FizzBuzz` class.
+- **TDDTests.swift**: Unit tests for the `FizzBuzz` class, covering multiple scenarios, including edge cases, boundary conditions, and optional handling.
 
-### Basic Scenario Tests
-- Added tests to cover all expected FizzBuzz conditions:
-  - Multiples of **3 and 5**: Should return `"FizzBuzz"`.
-  - Multiples of **3** only: Should return `"Fizz"`.
-  - Multiples of **5** only: Should return `"Buzz"`.
-  - Numbers **not divisible** by 3 or 5: Should return the number as a string.
+## FizzBuzz Implementation
+The `FizzBuzz` implementation provides the following functionality:
+- If a number is divisible by **3 and 5**, it returns **"FizzBuzz"**.
+- If a number is divisible by **3** only, it returns **"Fizz"**.
+- If a number is divisible by **5** only, it returns **"Buzz"**.
+- Otherwise, it returns the number as a **String**.
 
-### Boundary and Edge Case Testing
-- **Boundary Values**: Tests for values around multiples (e.g., numbers just before or after `3`, `5`, and `15`).
-- **Negative Numbers**: Added tests to ensure correct behavior for negative multiples of `3`, `5`, and `15`.
-- **Zero Handling**: Added a test for `0`, which should return `"FizzBuzz"` since it is divisible by both `3` and `5`.
+## Unit Tests Overview
+The unit tests are written using **XCTest** and are designed to validate all possible scenarios for the FizzBuzz logic. Key scenarios include:
 
-### Large Number Testing
-- Added tests for **large positive numbers** such as `300` and `9999` to ensure the function works correctly and efficiently.
-- Added tests for **`Int.max` and `Int.min`** to verify the correct handling of extreme values.
+### Test Cases Included
+1. **Divisible by 3 and 5 (FizzBuzz)**:
+   - Examples: 15, 30, -15, 0.
+2. **Divisible by 3 Only (Fizz)**:
+   - Examples: 3, 6, -3.
+3. **Divisible by 5 Only (Buzz)**:
+   - Examples: 5, 10, -5.
+4. **Not Divisible by 3 or 5**:
+   - Examples: 1, 2, 4, 7.
+5. **Negative Values**:
+   - Ensures negative multiples return the correct results.
+6. **Boundary and Large Values**:
+   - Includes testing large numbers and zero.
+7. **Optional Handling**:
+   - Ensures that the `FizzBuzz` object is safely unwrapped using optional binding (`guard let`, `if let`).
+   - Includes tests for scenarios where the object might be `nil`.
 
-### Parameterized Testing
-- Added a **parameterized test** that loops through various input values and their expected results. This approach improves coverage and reduces redundancy.
+### Example Tests
+- **`testFizzBuzz()`**: Tests numbers like `15` and `30` for the expected result **"FizzBuzz"**.
+- **`testFizz()`**: Tests numbers like `3`, `6` to return **"Fizz"**.
+- **`testBuzz()`**: Tests numbers like `5`, `10` for **"Buzz"**.
+- **`testBoundaryValues()`**: Tests numbers not divisible by `3` or `5` to confirm they return their string representation.
+- **`testNilObject()`**: Confirms the behavior when the `FizzBuzz` instance is set to `nil`.
 
-### Code Refactoring
-- Refactored the `setUpWithError()` and `tearDownWithError()` methods for better initialization and cleanup of the `FizzBuzz` test object.
+## Running the Tests
+To run the unit tests:
+1. Open the project in **Xcode**.
+2. Press `Cmd + U` or navigate to **Product > Test** in the menu.
+3. Ensure all tests pass and that optional cases are handled gracefully.
 
----
+## Requirements
+- **Xcode 12** or later.
+- **Swift 5**.
 
-These enhancements ensure that the `FizzBuzz` functionality is thoroughly validated for different scenarios, providing more confidence in its reliability.
+## Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/fizzbuzz-tdd.git
+   ```
+2. Open the `.xcodeproj` file in Xcode.
+3. Build the project (`Cmd + B`) to ensure everything compiles.
+
+## Contributions
+Feel free to contribute by adding more edge case tests, improving the FizzBuzz implementation, or refining the existing unit tests. Fork the repository and create a pull request with your changes.
+
+## License
+This project is licensed under the **MIT License**.
+
+## Contact
+For questions, feedback, or collaboration, please contact **Muralidhar Reddy Kakanuru** at `muralidhar@example.com`.
+
