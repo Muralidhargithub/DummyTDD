@@ -1,29 +1,31 @@
-README Update for FizzBuzz Unit Tests
-Title: Adding Comprehensive Unit Tests for FizzBuzz
+# FizzBuzz Unit Tests
 
-Overview:
+## Overview
 
-This update introduces a full suite of unit tests for the FizzBuzz implementation to ensure that the logic is well-tested and robust. The following are the key areas covered in the unit testing:
+This update introduces a comprehensive set of unit tests for the `FizzBuzz` implementation to ensure the correctness and robustness of the logic. Below are the key enhancements and scenarios covered by these unit tests:
 
-Basic Scenario Tests:
+### Basic Scenario Tests
+- Added tests to cover all expected FizzBuzz conditions:
+  - Multiples of **3 and 5**: Should return `"FizzBuzz"`.
+  - Multiples of **3** only: Should return `"Fizz"`.
+  - Multiples of **5** only: Should return `"Buzz"`.
+  - Numbers **not divisible** by 3 or 5: Should return the number as a string.
 
-Covering the expected outputs for:
-Multiples of 3 and 5 ("FizzBuzz").
-Multiples of 3 only ("Fizz").
-Multiples of 5 only ("Buzz").
-Numbers not divisible by 3 or 5 (returns the number as a string).
-Boundary and Edge Cases:
+### Boundary and Edge Case Testing
+- **Boundary Values**: Tests for values around multiples (e.g., numbers just before or after `3`, `5`, and `15`).
+- **Negative Numbers**: Added tests to ensure correct behavior for negative multiples of `3`, `5`, and `15`.
+- **Zero Handling**: Added a test for `0`, which should return `"FizzBuzz"` since it is divisible by both `3` and `5`.
 
-Boundary values around critical points, such as numbers just before or after multiples of 3, 5, and 15.
-Testing negative numbers to verify correct behavior for negative inputs.
-Testing the value of zero (0), which should return "FizzBuzz" since it is technically a multiple of both 3 and 5.
-Large Number Testing:
+### Large Number Testing
+- Added tests for **large positive numbers** such as `300` and `9999` to ensure the function works correctly and efficiently.
+- Added tests for **`Int.max` and `Int.min`** to verify the correct handling of extreme values.
 
-Includes tests for large positive numbers to ensure that the implementation can handle higher values correctly.
-Special tests for Int.max and Int.min to validate handling of extreme values.
-Parameterized Testing:
+### Parameterized Testing
+- Added a **parameterized test** that loops through various input values and their expected results. This approach improves coverage and reduces redundancy.
 
-Added a parameterized test to iterate through multiple test cases in one function, making the code cleaner and reducing redundancy.
-Code Refactoring:
+### Code Refactoring
+- Refactored the `setUpWithError()` and `tearDownWithError()` methods for better initialization and cleanup of the `FizzBuzz` test object.
 
-Improvements in setUpWithError() and tearDownWithError() methods to ensure proper lifecycle management of the FizzBuzz test object.
+---
+
+These enhancements ensure that the `FizzBuzz` functionality is thoroughly validated for different scenarios, providing more confidence in its reliability.
