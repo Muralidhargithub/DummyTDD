@@ -29,41 +29,131 @@ import XCTest
 
 final class TDDTests: XCTestCase {
     var objectCal: FizzBuzz?
-    
+
     override func setUpWithError() throws {
         objectCal = FizzBuzz()
     }
-    
+
     override func tearDownWithError() throws {
         objectCal = nil
     }
-    
+
     func testFizzBuzz() {
-        let res = objectCal?.fizbuz(15)
-        XCTAssertEqual(res, "FizzBuzz")
-        
-        let res1 = objectCal?.fizbuz(30)
-        XCTAssertEqual(res1, "FizzBuzz")
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        let result = fizzBuzz.fizbuz(15)
+        XCTAssertEqual(result, "FizzBuzz")
     }
-    func testNotFizzNotBuzz(){
-        let res = objectCal?.fizbuz(11)
-        XCTAssertEqual(res, "11")
+
+    func testNotFizzNotBuzz() {
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        let result = fizzBuzz.fizbuz(11)
+        XCTAssertEqual(result, "11")
     }
-    func testBuzz(){
-        let res = objectCal?.fizbuz(5)
-        XCTAssertEqual(res, "Buzz")
+
+    func testBuzz() {
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        let result = fizzBuzz.fizbuz(5)
+        XCTAssertEqual(result, "Buzz")
     }
-    func testFizz(){
-        let res = objectCal?.fizbuz(3)
-        XCTAssertEqual(res, "Fizz")
+
+    func testFizz() {
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        let result = fizzBuzz.fizbuz(3)
+        XCTAssertEqual(result, "Fizz")
     }
-    func testNeagative(){
-        let res = objectCal?.fizbuz(-7)
-        XCTAssertEqual(res, "-7")
-        
-        let res1 = objectCal?.fizbuz(-4)
-        XCTAssertEqual(res1, "-4")
-        
+
+    func testNegativeFizz() {
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        let result = fizzBuzz.fizbuz(-3)
+        XCTAssertEqual(result, "Fizz")
+    }
+
+    func testNegativeBuzz() {
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        let result = fizzBuzz.fizbuz(-5)
+        XCTAssertEqual(result, "Buzz")
+    }
+
+    func testNegativeFizzBuzz() {
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        let result = fizzBuzz.fizbuz(-15)
+        XCTAssertEqual(result, "FizzBuzz")
+    }
+
+    func testZero() {
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        let result = fizzBuzz.fizbuz(0)
+        XCTAssertEqual(result, "FizzBuzz")
+    }
+
+    func testLargeNumber() {
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        let result = fizzBuzz.fizbuz(1_000_000)
+        XCTAssertEqual(result, "Buzz")
+    }
+
+    func testBoundaryValues() {
+        guard let fizzBuzz = objectCal else {
+            XCTFail("FizzBuzz object should not be nil")
+            return
+        }
+        XCTAssertEqual(fizzBuzz.fizbuz(2), "2")
+        XCTAssertEqual(fizzBuzz.fizbuz(4), "4")
+        XCTAssertEqual(fizzBuzz.fizbuz(14), "14")
+        XCTAssertEqual(fizzBuzz.fizbuz(16), "16")
+    }
+
+    func testFizzBuzzWithOptionalUnwrapping() {
+        if let fizzBuzz = objectCal {
+            let result = fizzBuzz.fizbuz(15)
+            XCTAssertEqual(result, "FizzBuzz")
+        } else {
+            XCTFail("FizzBuzz object should not be nil")
+        }
+    }
+
+    func testNilObject() {
+        objectCal = nil
+        if let fizzBuzz = objectCal {
+            XCTFail("FizzBuzz object should be nil but got \(fizzBuzz)")
+        } else {
+            XCTAssertNil(objectCal, "Expected FizzBuzz object to be nil")
+        }
+    }
+
+    func testOptionalHandlingWithValidInstance() {
+        XCTAssertNotNil(objectCal, "FizzBuzz object should not be nil")
+        if let fizzBuzz = objectCal {
+            XCTAssertEqual(fizzBuzz.fizbuz(3), "Fizz")
+            XCTAssertEqual(fizzBuzz.fizbuz(5), "Buzz")
+            XCTAssertEqual(fizzBuzz.fizbuz(15), "FizzBuzz")
+        }
     }
 }
-
