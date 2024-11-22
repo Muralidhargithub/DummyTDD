@@ -62,8 +62,6 @@ To run the unit tests:
 ## Contributions
 Feel free to contribute by adding more edge case tests, improving the FizzBuzz implementation, or refining the existing unit tests. Fork the repository and create a pull request with your changes.
 
-## License
-This project is licensed under the **MIT License**.
 
 ## Contact
 For questions, feedback, or collaboration, please contact **Muralidhar Reddy Kakanuru** at `muralidhar@example.com`.
