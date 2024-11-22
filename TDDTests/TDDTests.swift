@@ -59,6 +59,9 @@ final class TDDTests: XCTestCase {
         let res = objectCal?.fizbuz(-7)
         XCTAssertEqual(res, "-7")
         
+        let res1 = objectCal?.fizbuz(-4)
+        XCTAssertEqual(res1, "-4")
+        
     }
 }
 
